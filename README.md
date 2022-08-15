@@ -117,7 +117,7 @@ const Comment = t.interface("Comment", {
 });
 
 const CommentReply = t.type("CommentReply", () => ({
-  parent: CommentReply,
+  parent: t.optional(CommentReply),
   author: User,
   post: Post,
   text: t.string(),
@@ -147,7 +147,7 @@ export interface Comment {
   text: string;
 }
 export type CommentReply = {
-  parent: CommentReply;
+  parent?: CommentReply | undefined;
   author: User;
   post: Post;
   text: string;
